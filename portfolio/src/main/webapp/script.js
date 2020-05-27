@@ -30,4 +30,10 @@ function addRandomQuote() {
   // Add it to the page.
   const quoteContainer = document.getElementById('quote-container');
   quoteContainer.innerText = quote;
+
+}
+async function fetchData() {
+  const response = await fetch('/data');
+  const quote = await response.text();
+  document.getElementById('hi').innerText = quote;
 }
