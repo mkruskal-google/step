@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <title>My Portfolio</title>
@@ -8,42 +8,28 @@
   </head>
   <body onload="fetchData(5)">
     <div id="content">
-      <h1
-        style="
-          color: #282828;
-          letter-spacing: 2pt;
-          text-transform: uppercase;
-          font-family: helvetica;
-        "
-      >
+      <h1 id="test">
         Hi there
       </h1>
       <p>
         Hello world this is Mike! This is my portfolio and these are my cats:
       </p>
-      <img width="500px" src="/images/big.jpg" /><br />
-      <img width="500px" src="/images/little.jpg" />
+      <img width="500px" src="/images/big.jpg" alt="bubby" /><br />
+      <img width="500px" src="/images/little.jpg" alt="little bear" />
       <p>Click here to get a random Office quote:</p>
-      <button onclick="addRandomQuote()">Boop</button><br />
-      <h1 style="font-family: helvetica;" id="quote-container"></h1>
+      <button onclick="addRandomQuote()" type="button">Boop</button><br />
+      <h1 id="quote-container">&nbsp;</h1>
 
-      <form action="/data" method="POST">
+      <form action="/data" method="post">
         <h1>Leave a comment below</h1>
         <textarea name="text-input">Say hi!</textarea>
         <br /><br />
 
-        <input type="submit" />
+        <button type="submit">Submit</button>
         <br /><br />
 
         <label for="numcomments">Choose number of comments visible:</label>
-        <input
-          onchange="fetchData(this.value)"
-          type="number"
-          id="numcomments"
-          name="numcomments"
-          min="1"
-          max="100"
-        />
+        <input onchange="fetchData(this.value)" type="number" id="numcomments" name="numcomments" min="1" max="100" />
         <br /><br />
 
         <h1>What you said:</h1>
@@ -51,9 +37,7 @@
         <br />
         <br />
       </form>
-      <button onclick="deleteData()">Delete all comments</button><br />
+      <button type="button" onclick="deleteData()">Delete all comments</button><br />
     </div>
   </body>
-<div>test3</div>
-<div>test2</div>
 </html>

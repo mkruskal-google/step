@@ -17,7 +17,7 @@
  */
 function addRandomQuote() {
   const quotes = [
-          'I am Beyonce always.',
+    'I am Beyonce always.',
     'I talk a lot, so I\'ve learned to just tune myself out',
     'Dwight you ignorant slut',
     'I am running away from my responsibilities and it feels good.',
@@ -29,16 +29,16 @@ function addRandomQuote() {
   const quote = quotes[Math.floor(Math.random() * quotes.length)];
 
   // Add it to the page.
-          const quoteContainer = document.getElementById('quote-container');
+  const quoteContainer = document.getElementById('quote-container');
   quoteContainer.innerText = quote;
 }
 async function fetchData(maxcomments) {
   const response = await fetch('/data?max-comments=' + maxcomments);
   const comments = await response.json();
   console.log(comments);
-  var innerHTML = '';
-  for (var i = 0; i < comments.length; ++i) {
-    var comment = comments[i];
+  let innerHTML = '';
+  for (let i = 0; i < comments.length; ++i) {
+    const comment = comments[i];
     innerHTML += comment + '<br>';
   }
   document.getElementById('hi').innerHTML = innerHTML;

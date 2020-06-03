@@ -7,3 +7,10 @@
 #greeting-container {
   margin-top: 20px;
 }
+
+#test {
+  color: #282828;
+  letter-spacing: 2pt;
+  text-transform: uppercase;
+  font-family: helvetica;
+}
