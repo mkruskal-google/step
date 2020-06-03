@@ -1,15 +1,14 @@
-name: CI
+name: Lint
 
-on: [push]
+on: [push, pull_request]
 
 jobs:
-  build:
+  lint:
 
     runs-on: ubuntu-latest
+    working_directory: portfolio
     steps:
     - uses: actions/checkout@v2
-    - name: Navigate to portfolio directory
-      run: cd portfolio
     - name: Maven compile
       run: mvn package
     - name: install node dependencies
