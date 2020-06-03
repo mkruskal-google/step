@@ -2,7 +2,9 @@ name: Lint
 
 on: [push, pull_request]
 
-shared:
+jobs:
+  lint:
+    runs-on: ubuntu-latest
     env:
         working-directory: ./portfolio
     steps:
@@ -14,13 +16,6 @@ shared:
       working-directory: ${{env.working-directory}}
       if: always()
       run: make node_modules
-
-jobs:
-  lint:
-    runs-on: ubuntu-latest
-    env:
-        working-directory: ./portfolio
-    steps:
     - name: Validate HTML
       working-directory: ${{env.working-directory}}
       if: always()
