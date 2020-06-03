@@ -16,13 +16,14 @@
  * Adds a random quote to the page.
  */
 function addRandomQuote() {
-  const quotes =
-      ['I am Beyonce always.', 
-      'I talk a lot, so I\'ve learned to just tune myself out', 
-      'Dwight you ignorant slut', 
-      'I am running away from my responsibilities and it feels good.',
-      'I want people to be afraid of how much they love me',
-      'Bears, Beets, Battlestar Galactica',];
+  const quotes = [
+    'I am Beyonce always.',
+    'I talk a lot, so I\'ve learned to just tune myself out',
+    'Dwight you ignorant slut',
+    'I am running away from my responsibilities and it feels good.',
+    'I want people to be afraid of how much they love me',
+    'Bears, Beets, Battlestar Galactica',
+  ];
 
   // Pick a random quote.
   const quote = quotes[Math.floor(Math.random() * quotes.length)];
@@ -30,23 +31,20 @@ function addRandomQuote() {
   // Add it to the page.
   const quoteContainer = document.getElementById('quote-container');
   quoteContainer.innerText = quote;
-
 }
 async function fetchData(maxcomments) {
-  const response = await fetch('/data?max-comments='+maxcomments);
+  const response = await fetch('/data?max-comments=' + maxcomments);
   const comments = await response.json();
   console.log(comments);
   var innerHTML = '';
-    for(var i = 0; i < comments.length; ++i) {
-        var comment = comments[i];
-        innerHTML += comment + '<br>';
-    }
+  for (var i = 0; i < comments.length; ++i) {
+    var comment = comments[i];
+    innerHTML += comment + '<br>';
+  }
   document.getElementById('hi').innerHTML = innerHTML;
 }
 
 async function deleteData() {
-  const response = await fetch('/delete-data',{
-      method: 'POST'
-  });
+  const response = await fetch('/delete-data', {method: 'POST'});
   fetchData(0);
 }
