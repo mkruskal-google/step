@@ -32,8 +32,21 @@ function addRandomQuote() {
   quoteContainer.innerText = quote;
 
 }
-async function fetchData() {
-  const response = await fetch('/data');
-  const quote = await response.text();
-  document.getElementById('hi').innerText = quote;
+async function fetchData(maxcomments) {
+  const response = await fetch('/data?max-comments='+maxcomments);
+  const comments = await response.json();
+  console.log(comments);
+  var innerHTML = '';
+    for(var i = 0; i < comments.length; ++i) {
+        var comment = comments[i];
+        innerHTML += comment + '<br>';
+    }
+  document.getElementById('hi').innerHTML = innerHTML;
+}
+
+async function deleteData() {
+  const response = await fetch('/delete-data',{
+      method: 'POST'
+  });
+  fetchData(0);
 }
