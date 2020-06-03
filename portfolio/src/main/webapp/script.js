@@ -12,9 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-/**
- * Adds a random quote to the page.
- */
+/* exported addRandomQuote */
 function addRandomQuote() {
   const quotes = [
     'I am Beyonce always.',
@@ -32,6 +30,8 @@ function addRandomQuote() {
   const quoteContainer = document.getElementById('quote-container');
   quoteContainer.innerText = quote;
 }
+
+/* exported fetchData */
 async function fetchData(maxcomments) {
   const response = await fetch('/data?max-comments=' + maxcomments);
   const comments = await response.json();
@@ -44,7 +44,8 @@ async function fetchData(maxcomments) {
   document.getElementById('hi').innerHTML = innerHTML;
 }
 
+/* exported deleteData */
 async function deleteData() {
-  const response = await fetch('/delete-data', {method: 'POST'});
+  await fetch('/delete-data', {method: 'POST'});
   fetchData(0);
 }
