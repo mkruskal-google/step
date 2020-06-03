@@ -17,7 +17,8 @@
  */
 function addRandomQuote() {
   const quotes =
-      ['I am Beyonce always.', 
+      [
+          'I am Beyonce always.', 
       'I talk a lot, so I\'ve learned to just tune myself out', 
       'Dwight you ignorant slut', 
       'I am running away from my responsibilities and it feels good.',
@@ -28,6 +29,6 @@ function addRandomQuote() {
   const quote = quotes[Math.floor(Math.random() * quotes.length)];
 
   // Add it to the page.
-  const quoteContainer = document.getElementById('quote-container');
+        const quoteContainer = document.getElementById('quote-container');
   quoteContainer.innerText = quote;
 }
